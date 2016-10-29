@@ -13,6 +13,7 @@ Running `grunt test` will run the unit tests with karma.
 
 ## S3 Deployment
 
-Run `grunt s3_publish` for publishing into aws_s3
+Run `grunt publish` for publishing into aws_s3
 
-- to do this you will need to have created an s3 bucket
+- to do this you will need to have created an s3 bucket in your aws account
+- have an aws-key.json file in your root project that contains your aws key pair credentials

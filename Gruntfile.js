@@ -30,7 +30,27 @@ module.exports = function (grunt) {
 
     // Project settings
     yeoman: appConfig,
-
+    // aws key to upload
+    aws: grunt.file.readJSON('aws-key.json'),
+    aws_s3: {
+      options: {
+        accessKeyId: '<%= aws.AWSAccessKeyId %>', // Use the variables
+        secretAccessKey: '<%= aws.AWSSecretKey %>', // You can also use env 
+        //region: 'us-west-1',
+        differential: true,
+        displayChangesOnly: true,
+        uploadConcurrency: 5, // 5 simultaneous uploads
+        downloadConcurrency: 5 // 5 simultaneous downloads
+      },
+      production:{
+        options:{
+          bucket:'www.constructionx.com'
+        },
+        files:[
+          {expand:true, cwd:'dist', src:['**'], dest:'/'}
+        ]
+      }
+    },
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -146,7 +166,7 @@ module.exports = function (grunt) {
       },
       all: {
         src: [
-          'Gruntfile.js',
+          //'Gruntfile.js',
           '<%= yeoman.app %>/scripts/{,*/}*.js'
         ]
       },
@@ -480,4 +500,6 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerTask('publish', ['default','aws_s3']);
 };
