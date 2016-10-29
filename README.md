@@ -13,3 +13,4 @@ Running `grunt test` will run the unit tests with karma.
 
 ## S3 Deployment
 
+Run `grunt s3_publish` for publishing into aws_s3
