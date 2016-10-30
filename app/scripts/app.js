@@ -46,6 +46,11 @@ angular
         controller: 'LoginCtrl',
         controllerAs: 'login'
       })
+      .when('/design', {
+        templateUrl: 'views/design.html',
+        controller: 'DesignCtrl',
+        controllerAs: 'design'
+      })
       .otherwise({
         redirectTo: '/'
       });
