@@ -4,7 +4,11 @@
     <img src="images/yeoman.png" alt="I'm Yeoman"><br>
     Always a pleasure scaffolding your apps.
   </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="fa fa-check fa-2x"></span></a></p>
+  <p>
+    <button ng-if="app.isAuthenticated()" ng-click="app.logout()" class="btn btn-warning btn-lg">logout</button>
+    <a ng-if="!app.isAuthenticated()" href="#/login" class="btn btn-warning btn-lg">login <i class="flaticon-hammer"></i></a>
+  </p>
 </div>
 
 <div class="row marketing">

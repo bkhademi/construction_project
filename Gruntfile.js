@@ -89,7 +89,7 @@ module.exports = function (grunt) {
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'copy:fonts', 'postcss']
+        tasks: ['newer:copy:styles', 'copy:fonts','copy:fonts_all', 'postcss']
       },
       less:{
       files: ['<%= yeoman.app %>/less/{,*/}*.less'],
@@ -113,7 +113,7 @@ module.exports = function (grunt) {
     // The actual grunt server settings
     connect: {
       options: {
-        port: 9000,
+        port: 8080,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost',
         livereload: 35729
@@ -423,7 +423,8 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            'fonts/*'
           ]
         }, {
           expand: true,
@@ -435,7 +436,14 @@ module.exports = function (grunt) {
           cwd: 'bower_components/bootstrap/dist',
           src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
-        }]
+        }, {
+          expand: true,
+          cwd: 'bower_components/font-awesome/',
+          src: 'fonts/*',
+          dest: '<%= yeoman.dist %>'
+        }
+
+        ]
       },
       styles: {
         expand: true,
@@ -448,21 +456,28 @@ module.exports = function (grunt) {
           cwd: 'bower_components/bootstrap/dist/fonts',
           dest: '.tmp/fonts/',
           src: '*'
-        }
+        },
+      fonts_all:{
+          expand: true,
+          cwd: '<%= yeoman.app %>/fonts',
+          dest: '.tmp/fonts/',
+          src: '*'
+      }
 
     },
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'copy:styles','copy:fonts'
+        'copy:styles','copy:fonts', 'copy:fonts_all'
       ],
       test: [
-        'copy:styles','copy:fonts'
+        'copy:styles','copy:fonts', 'copy:fonts_all'
       ],
       dist: [
         'copy:styles',
         'copy:fonts',
+        'copy:fonts_all',
         'imagemin',
         'svgmin'
       ]
