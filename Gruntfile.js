@@ -47,8 +47,27 @@ module.exports = function (grunt) {
           bucket:'www.constructionx.com'
         },
         files:[
-          {expand:true, cwd:'dist', src:['**'], dest:'/'}
+        {expand:true, cwd:'dist', src:['**'], dest:'/'}
         ]
+      }
+    },
+    less: {  
+      development: {
+        options: {
+          paths: [""]
+        },
+        files: {
+          ".tmp/styles/bootstrap.css": "<%= yeoman.app %>/less/bootstrap.less"
+        }
+      },
+      production: {
+        options: {
+          paths: [""],
+          cleancss: true,
+        },
+        files: {
+          "<%= yeoman.app %>/styles/boostrap.css": "<%= yeoman.app %>/less/bootstrap.less"
+        }
       }
     },
     // Watches files for changes and runs tasks based on the changed files
@@ -71,6 +90,10 @@ module.exports = function (grunt) {
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'postcss']
+      },
+      less:{
+      files: ['<%= yeoman.app %>/less/{,*/}*.less'],
+        tasks: ['less:development', 'postcss']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -418,8 +441,9 @@ module.exports = function (grunt) {
         expand: true,
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
-        src: '{,*/}*.css'
-      }
+        src: ['{,*/}*.css', '../../bower_components/bootstrap/dist/fonts/{,*/}*.*']
+      },
+
     },
 
     // Run some tasks in parallel to speed up the build process
@@ -454,6 +478,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'less:development',
       'wiredep',
       'concurrent:server',
       'postcss:server',
@@ -479,6 +504,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
+    'less:development',
     'useminPrepare',
     'concurrent:dist',
     'postcss',
