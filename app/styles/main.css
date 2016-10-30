@@ -139,7 +139,7 @@ body {
 
 
 .right-img {
-  padding: 20px 0px;
+  padding-top: 30px;
   float: right;
 }
 
@@ -177,10 +177,16 @@ body {
   color: #fff;
 }
 
+.our-services-container{
+  clear: both;
+  margin-top: -20px;
+  background-image: url('http://aadi.theironnetwork.org/wp-content/uploads/2016/06/our-services.jpg');
+}
+
 
 @media (max-width: 912px) {
   .right-img {
-    padding: 20px 20px;
+    padding: 20px 20px 0px;
     width: 100%;
   }
 }
