@@ -89,7 +89,7 @@ module.exports = function (grunt) {
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'postcss']
+        tasks: ['newer:copy:styles', 'copy:fonts', 'postcss']
       },
       less:{
       files: ['<%= yeoman.app %>/less/{,*/}*.less'],
@@ -441,21 +441,28 @@ module.exports = function (grunt) {
         expand: true,
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
-        src: ['{,*/}*.css', '../../bower_components/bootstrap/dist/fonts/{,*/}*.*']
+        src: '{,*/}*.css'
       },
+      fonts:{
+          expand: true,
+          cwd: 'bower_components/bootstrap/dist/fonts',
+          dest: '.tmp/fonts/',
+          src: '*'
+        }
 
     },
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'copy:styles'
+        'copy:styles','copy:fonts'
       ],
       test: [
-        'copy:styles'
+        'copy:styles','copy:fonts'
       ],
       dist: [
         'copy:styles',
+        'copy:fonts',
         'imagemin',
         'svgmin'
       ]
