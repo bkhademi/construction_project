@@ -35,7 +35,7 @@ module.exports = function (grunt) {
     aws_s3: {
       options: {
         accessKeyId: '<%= aws.AWSAccessKeyId %>', // Use the variables
-        secretAccessKey: '<%= aws.AWSSecretKey %>', // You can also use env 
+        secretAccessKey: '<%= aws.AWSSecretKey %>', // You can also use env
         //region: 'us-west-1',
         differential: true,
         displayChangesOnly: true,
@@ -240,7 +240,7 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
+    },
 
     // Renames files for browser caching purposes
     filerev: {
