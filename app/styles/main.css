@@ -1,42 +1,6 @@
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
 body {
-  overflow-x: hidden;
   padding-top: 53px;
-}
-
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
-}
-
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+  overflow-x: hidden;
 }
 
 .navbar-default {
@@ -66,8 +30,6 @@ body {
   border-bottom: 3px solid #fff !important;
 }
 
-
-
 .video-container {
   opacity: 1 !important;
   display: flex;
@@ -93,7 +55,7 @@ body {
 .video-container .video-heading {
   position: relative;
   clear: both;
-  background-color: rgba(0,0,0,.4);
+  background-color: rgba(0, 0, 0, .4);
   display: block !important;
   width: 100%;
   z-index: 1 !important;
@@ -108,7 +70,8 @@ body {
   font-weight: 100 !important;
   color: #fff;
 }
-.video-container .video-heading > p{
+
+.video-container .video-heading > p {
   font-family: 'Oxygen', sans-serif;
   margin: 15px;
   padding: 10px;
@@ -116,7 +79,7 @@ body {
   font-size: 18px;
 }
 
-.video-container .custom-button{
+.video-container .custom-button {
   text-transform: uppercase;
   font-size: 20px;
   font-weight: bold;
@@ -136,7 +99,6 @@ body {
   background-color: #ce4535;
   color: #fff;
 }
-
 
 .right-img {
   padding-top: 30px;
@@ -177,7 +139,7 @@ body {
   color: #fff;
 }
 
-.our-services-container{
+.our-services-container {
   font-family: 'Oxygen', sans-serif;
   clear: both;
   margin-top: -20px;
@@ -185,7 +147,7 @@ body {
   background-image: url('http://aadi.theironnetwork.org/wp-content/uploads/2016/06/our-services.jpg');
 }
 
-.service-card{
+.service-card {
   padding-top: 30px;
   background-color: #fff;
   min-height: 200px;
@@ -193,7 +155,7 @@ body {
   color: #999;
 }
 
-.service-card:hover{
+.service-card:hover {
   -webkit-transition: all 400ms linear;
   -moz-transition: all 400ms linear;
   -ms-transition: all 400ms linear;
@@ -206,18 +168,19 @@ body {
 .service-card > span {
   padding-top: 40px;
 }
-.service-card > h4{
- text-transform: uppercase;
+
+.service-card > h4 {
+  text-transform: uppercase;
 }
 
-.services-title{
+.services-title {
   color: #fff;
   text-align: center;
   padding: 15px 3px;
   margin: 10px 3px;
 }
 
-.services-title > h2{
+.services-title > h2 {
   padding-bottom: 10px;
   text-transform: uppercase;
 }
@@ -232,7 +195,8 @@ body {
     font-size: 50px;
     font-weight: 100 !important;
   }
-  .video-container .video-heading > p{
+
+  .video-container .video-heading > p {
     font-size: 14px;
   }
 }
