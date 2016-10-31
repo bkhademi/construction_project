@@ -186,13 +186,27 @@ body {
 }
 
 .service-card{
+  padding-top: 30px;
   background-color: #fff;
   min-height: 200px;
+  cursor: pointer;
+  color: #999;
 }
 
+.service-card:hover{
+  -webkit-transition: all 400ms linear;
+  -moz-transition: all 400ms linear;
+  -ms-transition: all 400ms linear;
+  -o-transition: all 400ms linear;
+  transition: all 400ms linear;
+  background-color: #ce4535;
+  color: #fff;
+}
+
+.service-card > span {
+  padding-top: 40px;
+}
 .service-card > h4{
-  padding: 15px 0px;
-  color: #999;
  text-transform: uppercase;
 }
 
@@ -212,5 +226,13 @@ body {
   .right-img {
     padding: 20px 20px 0px;
     width: 100%;
+  }
+
+  .video-container .video-heading > h1 {
+    font-size: 50px;
+    font-weight: 100 !important;
+  }
+  .video-container .video-heading > p{
+    font-size: 14px;
   }
 }
